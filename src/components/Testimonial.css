@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
+
+/* Global reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Container setup */
+.container {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #111111;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 50px 0;
+}
+
+/* Heading styles */
+.heading {
+    padding-top: 50px;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 100px;
+}
+
+.heading h1 {
+    font-size: 6rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.heading p {
+    font-size: 35px;
+    font-weight: 300;
+    text-align: center;
+    color: #d1d1d1;
+    margin-top: 20px;
+}
+
+/* Carousel */
+.carousel {
+    height: 800px;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+/* Carousel track */
+.carousel-track {
+    padding-top: 100px;
+    display: flex;
+    width: calc(580px * 14);
+    animation: scroll 30s linear infinite;
+}
+
+/* Carousel card */
+.carousel-card {
+    width: 580px;
+    height: 550px;
+    background-color: #292929;
+    color: #ffffff;
+    border-radius: 15px;
+    margin: 0 15px;
+    padding: 25px;
+    font-size: 18px;
+    font-weight: 300;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    flex-shrink: 0;
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Profile image */
+.profile-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-top: 28px;
+}
+
+/* Name and comment */
+.name {
+    font-size: 40px;
+    font-weight: 100;
+    margin-top: 15px;
+}
+
+.comment {
+    margin-top: 30px;
+    font-size: 30px;
+    font-weight: 250;
+    line-height: 1.5;
+}
+
+/* Vertical animation */
+.carousel-card:nth-child(odd) {
+    animation: upDown1 5s ease-in-out infinite;
+}
+
+.carousel-card:nth-child(even) {
+    animation: upDown2 5s ease-in-out infinite;
+}
+
+@keyframes upDown1 {
+    0% {
+        transform: translateY(-40px);
+    }
+    50% {
+        transform: translateY(40px);
+    }
+    100% {
+        transform: translateY(-40px);
+    }
+}
+
+@keyframes upDown2 {
+    0% {
+        transform: translateY(40px);
+    }
+    50% {
+        transform: translateY(-40px);
+    }
+    100% {
+        transform: translateY(40px);
+    }
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-30%);
+    }
+}
+
+/* Container gradient fade effect */
+.container::before,
+.container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 150px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.container::before {
+    left: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+}
+
+.container::after {
+    right: 0;
+    background: linear-gradient(to left, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 1200px) {
+    .carousel-card {
+        width: 450px;
+        height: 400px;
+    }
+
+    .heading h1 {
+        font-size: 50px;
+    }
+    .comment{
+      font-size: 20px;
+    }
+}
+
+@media (max-width: 992px) {
+    .carousel-card {
+        width: 350px;
+        height: 350px;
+    }
+
+    .heading h1 {
+        font-size: 40px;
+    }
+
+    .profile-img {
+        width: 70px;
+        height: 70px;
+    }
+    .comment{
+      font-size: 14px;
+    }
+    .name{
+      font-size: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-card {
+        width: 280px;
+        height: 300px;
+    }
+
+    .heading h1 {
+        font-size: 35px;
+    }
+
+    .profile-img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .name {
+      font-size: 20px;
+    }
+
+    .comment {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 576px) {
+    .carousel-card {
+        width: 220px;
+        height: 250px;
+        font-size: 14px;
+    }
+
+    .heading h1 {
+        font-size: 28px;
+    }
+
+    .heading p {
+        font-size: 16px;
+    }
+
+    .profile-img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .name {
+        font-size: 17px;
+    }
+
+    .comment {
+        font-size: 8px;
+    }
+}
